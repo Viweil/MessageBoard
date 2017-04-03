@@ -5,7 +5,7 @@
 		$psw = $_POST["password"];
 		if($user == "" || $psw == "")
 		{
-			echo "<script>alert("Please input username or password."); history.go(-1);</script>"
+			echo "<script>alert('Please input username or password.'); history.go(-1);</script>";
 		}else{
 			mysql_connect("localhost","root","");
 			mysql_select_db("db_message");
@@ -15,7 +15,8 @@
 			if($num)
 			{
 				$row = mysql_fetch_array($result);  
-				echo $row[0];
+				/* echo $row[0]; */
+				echo "Hello " .$row[0];
 			}
 			else{
 				echo "<script>alert('invalid username or password'); history.go(-1);</script>";
@@ -23,7 +24,7 @@
 		}	
 		
 	}else{
-		echo "<script>alert('unsucessful');history.go(-1);</script>";
+		echo "<script>alert('Fail to submit');history.go(-1);</script>";
 	}
 	
 
